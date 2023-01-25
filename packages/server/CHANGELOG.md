@@ -1,5 +1,18 @@
 # @apollo/server
 
+## 4.3.2
+
+### Patch Changes
+
+- [#7314](https://github.com/apollographql/apollo-server/pull/7314) [`f246ddb71`](https://github.com/apollographql/apollo-server/commit/f246ddb7142d978a927de743108b602c511be119) Thanks [@trevor-scheer](https://github.com/trevor-scheer)! - Add an `__identity` property to `HeaderMap` class to disallow standard `Map`s (in TypeScript).
+
+  This ensures that typechecking occurs on fields which are declared to accept a
+  `HeaderMap` (notably, the `httpGraphQLRequest.headers` option to
+  `ApolloServer.executeHTTPGraphQLRequest` and the `http.headers` option to
+  `ApolloServer.executeOperation`). This might be a breaking change for
+  integration authors, but should be easily fixed by switching from `new
+Map<string, string>()` to `new HeaderMap()`.
+
 ## 4.3.1
 
 ### Patch Changes
